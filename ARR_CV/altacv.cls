@@ -38,7 +38,7 @@
 \usetikzlibrary{arrows}
 \RequirePackage[skins]{tcolorbox}
 \RequirePackage{enumitem}
-\setlist{leftmargin=*,labelsep=0.5em,nosep,itemsep=0.25\baselineskip,after=\vskip0.25\baselineskip}
+\setlist{leftmargin=*,labelsep=0.5em,nosep,itemsep=0.025\baselineskip,after=\vskip0\baselineskip}
 \setlist[itemize]{label=\itemmarker}
 \RequirePackage{graphicx}
 \RequirePackage{etoolbox}
@@ -48,7 +48,7 @@
 % \RequirePackage{marginfix}
 
 \setlength{\parindent}{0pt}
-\newcommand{\divider}{\textcolor{body!30}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip}
+\newcommand{\divider}{\textcolor{body!40}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}}
 
 \newenvironment{fullwidth}{%
   \begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
@@ -116,16 +116,22 @@
   {\color{emphasis}\large\bfseries{#1}\par}\medskip
 }
 
-\newcommand{\cvevent}[4]{%
+\newcommand{\cvevent}[2]{%
   {\large\color{emphasis}#1\par}
-  % \smallskip
-  % \textbf{\color{accent}#2}\par
-  % \smallskip
   {
-    \small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
-    \ifstrequal{#4}{}{}{\makebox[0.2\linewidth][l]{\hspace{0.9em}\faMapMarker\hspace{0.2em}#4}}\par
+    \ifstrequal{#2}{}{}
+    {\makebox[0.2\linewidth][l]{\hspace{0.9em}\hspace{0.2em}#2}}\par
   }
   % \medskip
+}
+
+\newcommand{\cvpastwork}[4]{%
+  {\large\color{emphasis}#1\par}
+  {
+    \small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#2}%
+    \ifstrequal{#3}{}{}{\makebox[0.2\linewidth][l]{\hspace{0.9em}\faMapMarker\hspace{0.2em}#3}}\par
+    {#4}\par
+  }
 }
 
 \newcommand{\cvachievement}[3]{%
